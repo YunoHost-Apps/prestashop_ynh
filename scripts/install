@@ -1,0 +1,119 @@
+#!/bin/bash
+
+source /usr/share/yunohost/helpers
+source ./_common
+source .fonctions
+set -eu
+
+# Retrieve app id
+app=abantecart
+
+# Retrieve arguments
+domain=$1
+path=$2
+is_public=$3
+user=$4
+passwd=$5
+email=$6
+
+script_dir=$PWD
+
+# Vérifie que les variables ne sont pas vides.
+CHECK_VAR "$app" "app name not set"
+CHECK_VAR "$script_dir" "script_dir not set"
+
+CHECK_PATH	# Vérifie et corrige la syntaxe du path.
+CHECK_DOMAINPATH	# Vérifie la disponibilité du path et du domaine.
+
+CHECK_FINALPATH	# Vérifie que le dossier de destination n'est pas déjà utilisé.
+
+# Install dependency to convert tracks to a readable format for the browser
+sudo apt-get update
+sudo apt-get -y -qq install php5-mysql
+
+# Check password strength
+[[ ${#passwd} -gt 5 ]] || ynh_die \
+"The password is too weak, it must be longer than 5 characters"
+
+# Save app settings
+user="$app"
+ynh_app_setting_set "$app" is_public "$is_public"
+ynh_app_setting_set "$app" password "$passwd"
+ynh_app_setting_set "$app" user "$user"
+
+# Initialize database as needed
+
+dbname=$app
+dbuser=$app
+dbpass=$(ynh_string_random)
+ynh_mysql_create_db "$dbname" "$dbuser" "$dbpass"
+
+# Store the database access
+echo -e "# MySQL Database"
+
+
+# Remove trailing "/" for next commands
+if [[ ! "$path" == "/" ]]; then
+    path=${path%/}
+fi
+
+# Copy files to the right place
+final_path=/var/www/$app
+sudo git clone https://github.com/abantecart/abantecart-src.git /var/www/$app
+sudo rm -rf $final_path/tests
+sudo rm -rf $final_path/install.txt
+sudo mv $final_path/public_html/* $final_path/
+sudo rm -rf $final_path/public_html
+
+pushd $final_path/install/
+sudo php cli_install.php install \
+       --db_host=localhost \
+       --db_user=$dbuser \
+       --db_password=$dbpass \
+       --db_name=$dbname \
+       --db_driver=amysqli \
+       --db_port=3306 \
+       --username=$user \
+       --password=$passwd \
+       --email=$email \
+       --http_server=$domain$path \
+       --db_prefix=_ac_ \
+       --admin_path=admin
+popd
+ 
+
+# file owned by www-data before checking permissions
+sudo chown www-data:www-data $final_path -R
+
+# Files owned by root, www-data can just read
+sudo chmod 0777 $final_path/system/config.php
+sudo chmod 0777 $final_path/system/
+sudo chmod 0777 $final_path/system/cache/ -R
+sudo chmod 0777 $final_path/system/logs/ -R
+sudo chmod 0777 $final_path/image/ -R
+sudo chmod 0777 $final_path/image/thumbnails/ -R
+sudo chmod 0777 $final_path/download/ -R
+sudo chmod 0777 $final_path/extensions/ -R
+sudo chmod 0777 $final_path/resources/ -R
+
+# set database configuration
+sed -i "s@YNH_WWW_PATH@$path@g" ../conf/nginx.conf
+
+# Modify Nginx configuration file and copy it to Nginx conf directory
+sed -i "s@YNH_WWW_PATH@$path@g" ../conf/nginx.conf
+sed -i "s@YNH_WWW_ALIAS@$final_path/@g" ../conf/nginx.conf
+nginxconf=/etc/nginx/conf.d/$domain.d/$app.conf
+sudo cp ../conf/nginx.conf $nginxconf
+sudo chown root: $nginxconf
+sudo chmod 600 $nginxconf
+
+sudo yunohost app setting $app is_public -v "$is_public"
+if [ "$is_public" = "Yes" ];
+then
+  sudo yunohost app setting $app unprotected_uris -v "/"
+fi
+
+sudo rm -rf /var/www/$app/install/
+
+sudo service nginx reload
+sudo yunohost app ssowatconf
