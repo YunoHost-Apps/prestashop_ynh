@@ -76,7 +76,7 @@ sudo php index_cli.php install \
        --password=$passwd \
        --email=$email \
        --domain=$domain$path \
-       --prefix=_ps_ \
+       --prefix=_ps_
   
 popd
  
