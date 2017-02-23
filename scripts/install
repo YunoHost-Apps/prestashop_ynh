@@ -59,26 +59,25 @@ fi
 
 # Copy files to the right place
 final_path=/var/www/$app
-sudo git clone https://github.com/abantecart/abantecart-src.git /var/www/$app
-sudo rm -rf $final_path/tests
-sudo rm -rf $final_path/install.txt
-sudo mv $final_path/public_html/* $final_path/
-sudo rm -rf $final_path/public_html
+extract_source
+SUDO unzip $final_path/prestashop.zip $final_path/prestashop
+sudo mv $final_path/prestashop/* $final_path/
+sudo rm -rf $final_path/prestashop
 
 pushd $final_path/install/
-sudo php cli_install.php install \
-       --db_host=localhost \
+sudo php index_cli.php install \
+       --db_server=localhost \
        --db_user=$dbuser \
        --db_password=$dbpass \
        --db_name=$dbname \
        --db_driver=amysqli \
        --db_port=3306 \
-       --username=$user \
+       --lastname=$user \
        --password=$passwd \
        --email=$email \
-       --http_server=$domain$path \
-       --db_prefix=_ac_ \
-       --admin_path=admin
+       --domain=$domain$path \
+       --prefix=_ps_ \
+  
 popd
  
 
@@ -86,15 +85,22 @@ popd
 sudo chown www-data:www-data $final_path -R
 
 # Files owned by root, www-data can just read
-sudo chmod 0777 $final_path/system/config.php
-sudo chmod 0777 $final_path/system/
-sudo chmod 0777 $final_path/system/cache/ -R
-sudo chmod 0777 $final_path/system/logs/ -R
-sudo chmod 0777 $final_path/image/ -R
-sudo chmod 0777 $final_path/image/thumbnails/ -R
-sudo chmod 0777 $final_path/download/ -R
-sudo chmod 0777 $final_path/extensions/ -R
-sudo chmod 0777 $final_path/resources/ -R
+sudo chmod 0775 $final_path/config/ -R
+sudo chmod 0775 $final_path/cache/ -R
+sudo chmod 0775 $final_path/mails/ -R
+sudo chmod 0775 $final_path/log/ -R
+sudo chmod 0775 $final_path/img/ -R
+sudo chmod 0775 $final_path/modules/ -R
+sudo chmod 0775 $final_path/override/ -R
+sudo chmod 0775 $final_path/themes/default/lang/ -R
+sudo chmod 0775 $final_path/themes/default/pdf/lang/ -R
+sudo chmod 0775 $final_path/themes/default/cache/ -R	
+sudo chmod 0775 $final_path/translations/ -R
+sudo chmod 0775 $final_path/upload/ -R
+sudo chmod 0775 $final_path/download/ -R
+sudo chmod 0775 $final_path/extensions/ -R
+sudo chmod 0775 $final_path/resources/ -R
+sudo chmod 0775 $final_path/sitemap.xml
 
 # set database configuration
 sed -i "s@YNH_WWW_PATH@$path@g" ../conf/nginx.conf
