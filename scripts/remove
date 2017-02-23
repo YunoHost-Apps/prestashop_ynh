@@ -1,0 +1,13 @@
+#!/bin/bash
+
+app=$YNH_APP_INSTANCE_NAME
+set -u
+# Source app helpers
+source /usr/share/yunohost/helpers
+
+domain=$(ynh_app_setting_get $app domain)
+
+sudo rm -rf /var/www/$app
+sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf
+
+sudo service nginx reload
