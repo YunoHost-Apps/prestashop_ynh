@@ -6,7 +6,7 @@ source .fonctions
 set -eu
 
 # Retrieve app id
-app=abantecart
+app=$YNH_APP_INSTANCE_NAME
 
 # Retrieve arguments
 domain=$1
