@@ -75,6 +75,15 @@ ynh_app_setting_set "$app" db_pwd "$db_pwd"
 ynh_app_setting_set "$app" db_user "$db_user"
 
 #=================================================
+# NGINX CONFIGURATION
+#=================================================
+final_path=/var/www/$app
+sudo sed -i "s@__PATHTOCHANGE__@$path@g" ../conf/nginx.conf
+sudo sed -i "s@__FINALPATH__@$final_path@g" ../conf/nginx.conf
+sudo sed -i "s@__NAMETOCHANGE__@$app@g" ../conf/nginx.conf
+sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
+
+#=================================================
 # Crée le repertoire de destination et check les permissions
 #=================================================
 sudo mkdir "$final_path"
@@ -111,16 +120,6 @@ popd
 #=================================================
 
 echo -e "127.0.0.1 $domain #PRESTASHOP" | sudo tee -a /etc/hosts
-
-
-#=================================================
-# NGINX CONFIGURATION
-#=================================================
-
-sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
-sudo sed -i "s@__PATHTOCHANGE__@$path@g" /etc/nginx/conf.d/$domain.d/$app.conf
-sudo sed -i "s@__FINALPATH__@$final_path@g" /etc/nginx/conf.d/$domain.d/$app.conf
-sudo sed -i "s@__NAMETOCHANGE__@$app@g" /etc/nginx/conf.d/$domain.d/$app.conf
 
 #=================================================
 # SETUP SSOWAT
