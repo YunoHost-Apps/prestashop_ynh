@@ -109,14 +109,6 @@ fi
 POOL_FPM
 
 #=================================================
-# Option de l'applications
-#=================================================
-
-db_md5=$(echo $db_pwd | md5sum | awk '{print $1}')
-db_sha=$(echo $db_pwd | openssl dgst -sha1 -hmac "key" | awk -F'= ' {'print $2'})
-language="$(echo $language | head -c 2)"
-
-#=================================================
 # Changer les informations de la tables 
 #=================================================
 
