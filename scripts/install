@@ -57,6 +57,12 @@ ynh_app_setting_set $app db_pwd $db_pwd
 ynh_app_setting_set $app email $email
 
 #=================================================
+# Check password strength
+#=================================================
+[[ ${#db_pwd} -gt 5 ]] || ynh_die \
+"The password is too weak, it must be longer than 5 characters"
+
+#=================================================
 # CREATE A SQL BDD
 #=================================================
 
@@ -75,11 +81,29 @@ sudo mkdir "$final_path"
 sudo chown -R www-data: $final_path
 
 #=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
+# Download, check and unpack source
 #=================================================
 
 ynh_app_setting_set $app final_path $final_path
 SETUP_SOURCE  "prestashop_1.7.0.5.zip" # Télécharge la source, décompresse et copie dans $final_path
+
+#=================================================
+# Installation de Prestashop
+#=================================================
+pushd $final_path/install/
+sudo php index_cli.php install \
+		--db_server=localhost \
+		--db_user=$db_user \
+		--db_password=$db_pass \
+		--db_name=$db_name \
+		--db_driver=amysqli \
+		--db_port=3306 \
+		--lastname=$db_user \
+		--password=$db_pwd \
+		--email=$email \
+		--domain=$domain \
+		--prefix=_ps_ 
+popd
 
 #=================================================
 # Set /etc/hosts
