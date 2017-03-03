@@ -81,11 +81,12 @@ sudo mkdir "$final_path"
 sudo chown -R www-data: $final_path
 
 #=================================================
-# Download, check and unpack source
+# DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 
+final_path=/var/www/$app
 ynh_app_setting_set $app final_path $final_path
-SETUP_SOURCE  "prestashop_1.7.0.5.zip" # Télécharge la source, décompresse et copie dans $final_path
+SETUP_SOURCE	# Télécharge la source, décompresse et copie dans $final_path
 
 #=================================================
 # Installation de Prestashop
