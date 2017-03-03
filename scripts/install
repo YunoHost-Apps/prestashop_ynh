@@ -40,7 +40,7 @@ app=$YNH_APP_INSTANCE_NAME
 #=================================================
 
 CHECK_USER "$admin_prestashop"	# Vérifie la validité de l'user admin
-path_url=$(ynh_normalize_url_path $path_url)	# Vérifie et corrige la syntaxe du path.
+path=$(ynh_normalize_url_path $path)	# Vérifie et corrige la syntaxe du path.
 CHECK_DOMAINPATH	# Vérifie la disponibilité du path et du domaine.
 CHECK_FINALPATH	# Vérifie que le dossier de destination n'est pas déjà utilisé.
 
