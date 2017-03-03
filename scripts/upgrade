@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Exit on command errors and treat unset variables as an error
+set -eu
+
+source .fonctions	# Charge les fonctions génériques habituellement utilisées dans le script
+
+# See comments in install script
+app=$YNH_APP_INSTANCE_NAME
+
+# Source YunoHost helpers
+source /usr/share/yunohost/helpers
+
+# Retrieve app settings
+domain=$(ynh_app_setting_get "$app" domain)
+path=$(ynh_app_setting_get "$app" path)
+admin=$(ynh_app_setting_get "$app" admin)
+is_public=$(ynh_app_setting_get "$app" is_public)
+language=$(ynh_app_setting_get "$app" language)
+
+CHECK_PATH	# Vérifie et corrige la syntaxe du path.
+
+# Check if admin is not null
+if [[ "$admin" = "" || "$is_public" = "" || "$language" = "" ]]; then
+    echo "Unable to upgrade, please contact support"
+    ynh_die
+fi
+
+root_pwd=$(sudo cat /etc/yunohost/mysql)
+
+final_path=/var/www/$app
+
+db_name=$app
+
+CHECK_MD5_CONFIG "connect.php" "$final_path/config/connect.php"	# Créé un backup du fichier de config si il a été modifié.
+
+# Modify Nginx configuration file and copy it to Nginx conf directory
+sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf*
+sed -i "s@ALIASTOCHANGE@$final_path/@g" ../conf/nginx.conf*
+
+if [ $is_public = "Yes" ];
+then
+	sudo cp ../conf/nginx.conf-public /etc/nginx/conf.d/$domain.d/$app.conf
+else
+	sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
+fi
+
+# If app is public, add url to SSOWat conf as skipped_uris
+if [[ $is_public -eq 1 ]]; then
+	# See install script
+	ynh_app_setting_set "$app" unprotected_uris "/"
+	sudo cp ../conf/nginx.conf-public /etc/nginx/conf.d/$domain.d/$app.conf
+else
+	sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
+fi
+
+# Reload Nginx
+sudo service nginx reload

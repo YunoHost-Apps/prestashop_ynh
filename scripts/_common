@@ -1,13 +1,1 @@
 PRESTASHOP_SOURCE_URL="https://download.prestashop.com/download/releases/prestashop_1.7.0.5.zip"
-
-extract_source() {
-  local DESTDIR=$1
-    
-  # retrieve and extract Prestashop Zip File
-  rc_tarball="${DESTDIR}/prestashop.zip"
-  sudo wget -q -O "$rc_tarball" "$PRESTASHOP_SOURCE_URL" \
-    || ynh_die "Unable to download source tarball"
-  sudo unzip "$rc_tarball" "$DESTDIR" \
-    || ynh_die "Unable to extract source tarball"
-  sudo rm "$rc_tarball"
-}
