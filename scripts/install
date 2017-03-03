@@ -23,7 +23,6 @@ domain=$YNH_APP_ARG_DOMAIN
 path=$YNH_APP_ARG_PATH
 admin_prestashop=$YNH_APP_ARG_ADMIN
 language=$YNH_APP_ARG_LANGUAGE
-#multisite=$YNH_APP_ARG_MULTISITE
 is_public=$YNH_APP_ARG_IS_PUBLIC
 db_pwd=$YNH_APP_ARG_PASSWD
 email=$YNH_APP_ARG_EMAIL
@@ -51,7 +50,6 @@ ynh_app_setting_set $app is_public $is_public
 ynh_app_setting_set $app language $language
 ynh_app_setting_set $app db_pwd $db_pwd
 ynh_app_setting_set $app email $email
-#ynh_app_setting_set $app multisite $multisite
 
 #=================================================
 # CREATE A SQL BDD
