@@ -58,12 +58,17 @@ SETUP_SOURCE () {	# Télécharge la source, décompresse et copie dans $final_pa
 	src_url=$(cat ../conf/app.src | grep SOURCE_URL | cut -d= -f2)
 	src_checksum=$(cat ../conf/app.src | grep SOURCE_SUM | cut -d= -f2)
 	# Download sources from the upstream
-	wget -nv -O source.tar.gz $src_url
+	wget -nv -O source.zip $src_url
 	# Vérifie la somme de contrôle de la source téléchargée.
-	echo "$src_checksum source.tar.gz" | md5sum -c --status || ynh_die "Corrupt source"
+	echo "$src_checksum source.zip" | md5sum -c --status || ynh_die "Corrupt source"
 	# Extract source into the app dir
 	sudo mkdir -p $final_path
-	sudo tar -x -f source.tar.gz -C $final_path --strip-components 1
+	sudo mv source.zip $final_path/source.zip
+	pushd $final_path
+	sudo unzip source.zip
+	sudo rm Install_PrestaShop.html index.php
+	sudo unzip prestashop.zip
+	sudo rm prestashop.zip
 }
 
 POOL_FPM () {	# Créer le fichier de configuration du pool php-fpm et le configure.
