@@ -95,7 +95,7 @@ pushd $final_path/install/
 sudo php index_cli.php install \
 		--db_server=localhost \
 		--db_user=$db_user \
-		--db_password=$db_pass \
+		--db_password=$db_pwd \
 		--db_name=$db_name \
 		--db_driver=amysqli \
 		--db_port=3306 \
