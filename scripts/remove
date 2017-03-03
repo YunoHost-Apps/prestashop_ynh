@@ -8,11 +8,20 @@ source .fonctions	# Charge les fonctions génériques habituellement utilisées 
 # Source app helpers
 source /usr/share/yunohost/helpers
 
-# Récupère les infos de l'application.
-app=$YNH_APP_INSTANCE_NAME
-domain=$(ynh_app_setting_get $app domain)
+#=================================================
+# LOAD SETTINGS
+#=================================================
 
-REMOVE_BDD $app	# Suppression de la base de donnée et de l'utilisateur associé.
+app=$YNH_APP_INSTANCE_NAME
+
+domain=$(ynh_app_setting_get $app domain)
+db_name=$(ynh_app_setting_get $app db_name)
+
+#=================================================
+# REMOVE THE SQL BDD
+#=================================================
+
+ynh_mysql_remove_db $db_name $db_name	# Suppression de la base de donnée et de l'utilisateur associé.
 
 SECURE_REMOVE '/var/www/$app'	# Suppression du dossier de l'application
 
