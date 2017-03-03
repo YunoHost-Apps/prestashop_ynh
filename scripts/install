@@ -84,6 +84,12 @@ sudo sed -i "s@__NAMETOCHANGE__@$app@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 #=================================================
+# PHP-FPM CONFIGURATION
+#=================================================
+
+POOL_FPM
+
+#=================================================
 # Crée le repertoire de destination et check les permissions
 #=================================================
 sudo mkdir "$final_path"
@@ -130,12 +136,6 @@ if [ "$is_public" = "Yes" ];
 then
   ynh_app_setting_set "$app" unprotected_uris "/"
 fi
-
-#=================================================
-# PHP-FPM CONFIGURATION
-#=================================================
-
-POOL_FPM
 
 #=================================================
 # Régénère la configuration de SSOwat
