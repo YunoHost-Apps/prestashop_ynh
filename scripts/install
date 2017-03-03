@@ -34,15 +34,15 @@ email=$YNH_APP_ARG_EMAIL
 
 app=$YNH_APP_INSTANCE_NAME
 
+
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THIS ARGS
 #=================================================
 
-CHECK_VAR "$app" "app name not set"
-CHECK_USER "$admin_prestashop"
-CHECK_PATH
-CHECK_DOMAINPATH
-CHECK_FINALPATH
+CHECK_USER "$admin_prestashop"	# Vérifie la validité de l'user admin
+path_url=$(ynh_normalize_url_path $path_url)	# Vérifie et corrige la syntaxe du path.
+CHECK_DOMAINPATH	# Vérifie la disponibilité du path et du domaine.
+CHECK_FINALPATH	# Vérifie que le dossier de destination n'est pas déjà utilisé.
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
