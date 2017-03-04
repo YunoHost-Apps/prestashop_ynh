@@ -69,6 +69,7 @@ SETUP_SOURCE () {	# Télécharge la source, décompresse et copie dans $final_pa
 	sudo rm Install_PrestaShop.html index.php
 	sudo unzip prestashop.zip
 	sudo rm prestashop.zip
+	sudo rm source.zip
 }
 
 POOL_FPM () {	# Créer le fichier de configuration du pool php-fpm et le configure.

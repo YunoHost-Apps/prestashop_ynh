@@ -90,10 +90,9 @@ sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 POOL_FPM
 
 #=================================================
-# Crée le repertoire de destination et check les permissions
+# Crée le repertoire de destination
 #=================================================
 sudo mkdir "$final_path"
-sudo chown -R www-data: $final_path
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -120,6 +119,11 @@ sudo php index_cli.php install \
 		--domain=$domain \
 		--prefix=_ps_ 
 popd
+
+#=================================================
+# check les permissions
+#=================================================
+sudo chown -R www-data: $final_path
 
 #=================================================
 # Set /etc/hosts
