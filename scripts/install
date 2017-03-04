@@ -106,13 +106,16 @@ SETUP_SOURCE	# Télécharge la source, décompresse et copie dans $final_path
 # Installation de Prestashop
 #=================================================
 pushd $final_path/install/
-sudo php index_cli.php install \
+sudo php index_cli.php \
 		--db_server=localhost \
 		--db_user=$db_user \
 		--db_password=$db_pwd \
 		--db_name=$db_name \
 		--db_driver=amysqli \
 		--db_port=3306 \
+		--lastname=$admin_prestashop \
+		--password=$pass \
+		--email=$email \
 		--domain=$domain \
 		--base_uri=$path \
 		--prefix=_ps_ 
