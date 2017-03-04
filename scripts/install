@@ -113,10 +113,11 @@ sudo php index_cli.php install \
 		--db_name=$db_name \
 		--db_driver=amysqli \
 		--db_port=3306 \
-		--lastname=$admin_prestashop \
-		--password=$pass \
-		--email=$email \
+		# --lastname=$admin_prestashop \
+		# --password=$pass \
+		# --email=$email \
 		--domain=$domain$path \
+		# --base_uri=$path \
 		--prefix=_ps_ 
 popd
 
