@@ -121,6 +121,8 @@ sudo php index_cli.php \
 		--prefix=_ps_ 
 popd
 
+sudo rm -fr $final_path/install
+
 #=================================================
 # Insert de l'utilisateur dans la base
 #=================================================
