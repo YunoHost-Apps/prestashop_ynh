@@ -116,7 +116,7 @@ sudo php index_cli.php install \
 		--lastname=$admin_prestashop \
 		--password=$pass \
 		--email=$email \
-		--domain=$domain \
+		--domain=$domain$path \
 		--prefix=_ps_ 
 popd
 
