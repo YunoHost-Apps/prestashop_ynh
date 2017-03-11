@@ -18,7 +18,7 @@ source /usr/share/yunohost/helpers
 # MANAGE FAILURE OF THE SCRIPT
 #=================================================
 
-ynh_check_error # Active trap pour arrêter le script si une erreur est détectée.
+TRAP_ON	# Active trap to stop the script if an error is detected.
 
 #=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
