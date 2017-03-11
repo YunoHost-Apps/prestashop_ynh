@@ -14,7 +14,7 @@ source /usr/share/yunohost/helpers
 domain=$(ynh_app_setting_get $app domain)
 path=$(ynh_app_setting_get $app path)
 is_public=$(ynh_app_setting_get $app is_public)
-with_mysql=$(ynh_app_setting_get "$app" with_mysql)
+# with_mysql=$(ynh_app_setting_get "$app" with_mysql)
 
 # Check domain/path availability
 sudo yunohost app checkurl "${domain}${path}" -a "$app" \
@@ -49,13 +49,13 @@ sudo cp -a ./sources "$final_path"
 sudo chown -R www-data: $final_path
 
 # Restore db
-if [[ $with_mysql -eq 1 ]]; then
-	db_pwd=$(ynh_app_setting_get $app mysqlpwd)
-	db_user=$app
-	ynh_mysql_create_db $db_user $db_user $db_pwd
-	sudo su -c "mysql -u $db_user -p$db_pwd $app < ./db.sql"
-	sudo rm -f "./db.sql"
-fi
+# if [[ $with_mysql -eq 1 ]]; then
+db_pwd=$(ynh_app_setting_get $app mysqlpwd)
+db_user=$app
+ynh_mysql_create_db $db_user $db_user $db_pwd
+sudo su -c "mysql -u $db_user -p$db_pwd $app < ./db.sql"
+sudo rm -f "./db.sql"
+#fi
 
 # Restore nginx configuration files
 sudo cp -a ./nginx.conf   "$nginx_conf"
