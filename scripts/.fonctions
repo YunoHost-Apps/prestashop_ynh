@@ -24,6 +24,15 @@ CHECK_FINALPATH () {	# Vérifie que le dossier de destination n'est pas déjà u
 	test ! -e "$final_path" || ynh_die "This path already contains a folder"
 }
 
+CHECK_PATH () {	# Checks / at the beginning of the path. And his absence at the end.
+	if [ "${path:0:1}" != "/" ]; then    # If the first character is not /
+		path="/$path"    # Add / at the beginning of path
+	fi
+	if [ "${path:${#path}-1}" == "/" ] && [ ${#path} -gt 1 ]; then    # If the last character is a / and it is not the only character.
+		path="${path:0:${#path}-1}"	# Delete last character
+	fi
+}
+
 #=================================================
 # DISPLAYING
 #=================================================
