@@ -15,11 +15,11 @@ domain=$(ynh_app_setting_get "$app" domain)
 
 # Drop MySQL database and user as needed
 #if [[ $with_mysql -eq 1 ]]; then
-    dbname=$app
-    dbuser=$app
-    dbpass=$(ynh_app_setting_get "$app" mysqlpwd)
-    ynh_mysql_drop_db $dbname || true
-    ynh_mysql_drop_user $dbuser || true
+dbname=$app
+dbuser=$app
+dbpass=$(ynh_app_setting_get "$app" mysqlpwd)
+ynh_mysql_drop_db $dbname || true
+ynh_mysql_drop_user $dbuser || true
 #fi
 
 # Delete app directory and configurations
