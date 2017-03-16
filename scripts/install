@@ -105,7 +105,7 @@ sudo php index_cli.php \
 		--db_server=localhost \
 		--db_user=$db_user \
 		--db_password=$db_pwd \
-		--db_name=$db_name \
+		--db_name=$app \
 		--db_driver=amysqli \
 		--db_port=3306 \
 		--language=${language:0:2} \
