@@ -10,6 +10,12 @@ YNH_VERSION () {	# Renvoi le numéro de version de la moulinette Yunohost
 	ynh_version=$(sudo yunohost -v | grep "moulinette:" | cut -d' ' -f2 | cut -d'.' -f1,2)
 }
 
+CHECK_VAR () {	# Verifies that the variable is not empty.
+	# $1 = Variable to be checked
+	# $2 = Display text on error
+	test -n "$1" || (echo "$2" >&2 && false)
+}
+
 CHECK_USER () {	# Vérifie la validité de l'user admin
 # $1 = Variable de l'user admin.
 	ynh_user_exists "$1" || ynh_die "Wrong user"
