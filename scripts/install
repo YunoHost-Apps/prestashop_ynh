@@ -66,13 +66,7 @@ ynh_app_setting_set $app email $email
 # CREATE A SQL BDD
 #=================================================
 
-db_name=$app
-db_user=$app
-db_pwd=$(ynh_string_random)
-ynh_mysql_create_db "$db_name" "$db_user" "$db_pwd"
-ynh_app_setting_set "$app" db_name "$db_name"
-ynh_app_setting_set "$app" db_pwd "$db_pwd"
-ynh_app_setting_set "$app" db_user "$db_user"
+GENERATE_DB $app	# Create a database and a dedicated user in the app name
 
 #=================================================
 # NGINX CONFIGURATION
