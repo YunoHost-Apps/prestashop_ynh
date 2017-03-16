@@ -60,6 +60,21 @@ ALL_QUIET () {	# Redirige la sortie standard et d'erreur dans /dev/null
 }
 
 #=================================================
+# Create a database and a dedicated user in the name of the app
+#=================================================
+GENERATE_DB () {	
+	# $1 = Database name
+	# Generates a random password.
+	db_user=$1
+	db_pwd=$(head -n20 /dev/urandom | tr -c -d 'A-Za-z0-9' | head -c20)
+	CHECK_VAR "$db_pwd" "db_pwd empty"
+	# Uses '$ app' as user name and database
+	# Initializes the database and stores the mysql password.
+	ynh_mysql_create_db "$db_user" "$db_user" $db_pwd
+	ynh_app_setting_set $app mysqlpwd $db_pwd
+}
+
+#=================================================
 # SETUP
 #=================================================
 
