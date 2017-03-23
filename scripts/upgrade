@@ -28,6 +28,8 @@ root_pwd=$(sudo cat /etc/yunohost/mysql)
 
 final_path=/var/www/$app
 
+SETUP_SOURCE
+
 db_name=$app
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
