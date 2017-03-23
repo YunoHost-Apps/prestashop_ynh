@@ -128,7 +128,7 @@ sudo chown -R www-data: $final_path
 # active ssl
 #=================================================
 mysql -u $db_user -p$db_pwd $db_user -e "UPDATE _ps_configuration SET value=1 WHERE name='PS_SSL_ENABLED';"
-#mysql -u $db_user -p$db_pwd $db_user -e "INSERT INTO _ps_configuration (id_configuration, id_shop_group, id_shop, name, value, date_add, date_upd) VALUES (NULL, NULL, NULL, 'PS_SSL_ENABLED_EVERYWHERE', '1', NOW(), NOW());"
+mysql -u $db_user -p$db_pwd $db_user -e "INSERT INTO _ps_configuration (id_configuration, id_shop_group, id_shop, name, value, date_add, date_upd) VALUES (NULL, NULL, NULL, 'PS_SSL_ENABLED_EVERYWHERE', '1', NOW(), NOW());"
 
 #=================================================
 # Set /etc/hosts
