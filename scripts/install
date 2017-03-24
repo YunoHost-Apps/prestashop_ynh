@@ -114,6 +114,7 @@ sudo php index_cli.php \
 		--password=$pass \
 		--email=$email \
 		--domain=$domain \
+		--base_uri=$path \
 		--prefix=_ps_ 
 popd
 
