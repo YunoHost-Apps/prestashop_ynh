@@ -110,10 +110,10 @@ sudo php index_cli.php \
 		--db_port=3306 \
 		--language=${language:0:2} \
 		--lastname=$admin_prestashop \
+		--firstname=$admin_prestashop \
 		--password=$pass \
 		--email=$email \
 		--domain=$domain \
-		--base_uri=$path \
 		--prefix=_ps_ 
 popd
 
