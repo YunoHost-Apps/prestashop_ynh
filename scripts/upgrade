@@ -30,6 +30,9 @@ final_path=/var/www/$app
 
 SETUP_SOURCE
 
+# Delete install directory after upgrade
+rm -fr "$final_path/install"
+
 db_name=$app
 
 # Modify Nginx configuration file and copy it to Nginx conf directory

@@ -97,7 +97,7 @@ SETUP_SOURCE () {	# Télécharge la source, décompresse et copie dans $final_pa
 	pushd $final_path
 	sudo unzip source.zip
 	sudo rm Install_PrestaShop.html index.php
-	sudo unzip prestashop.zip
+	sudo unzip -o prestashop.zip
 	sudo rm prestashop.zip
 	sudo rm source.zip
 }
