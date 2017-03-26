@@ -28,6 +28,7 @@ root_pwd=$(sudo cat /etc/yunohost/mysql)
 
 final_path=/var/www/$app
 
+# Get source
 SETUP_SOURCE
 
 # Delete install directory after upgrade
@@ -45,6 +46,9 @@ then
 	sudo sed -i "s@#--PRIVATE--@@g" /etc/nginx/conf.d/$domain.d/$app.conf
 fi
 
+# Create the php-fpm pool config
+POOL_FPM
+
 # Setup SSOwat
 ynh_app_setting_set "$app" is_public "$is_public"
 if [ "$is_public" = "Yes" ];
@@ -54,3 +58,5 @@ fi
 
 # Reload Nginx
 sudo service nginx reload
+sudo service php5-fpm reload
+sudo yunohost app ssowatconf
