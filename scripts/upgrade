@@ -56,7 +56,7 @@ then
   ynh_app_setting_set "$app" unprotected_uris "/"
 fi
 
-# Reload Nginx
-sudo service nginx reload
-sudo service php5-fpm reload
+# Reload services
+sudo systemctl reload php5-fpm
+sudo systemctl reload nginx
 sudo yunohost app ssowatconf
