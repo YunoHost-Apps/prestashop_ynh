@@ -150,7 +150,7 @@ REMOVE_NGINX_CONF () {	# Suppression de la configuration nginx
 	if [ -e "/etc/nginx/conf.d/$domain.d/$app.conf" ]; then	# Delete nginx config
 		echo "Delete nginx config"
 		sudo rm "/etc/nginx/conf.d/$domain.d/$app.conf"
-		sudo service nginx reload
+		sudo systemctl reload nginx
 	fi
 }
 
@@ -163,7 +163,7 @@ REMOVE_FPM_CONF () {	# Suppression de la configuration du pool php-fpm
 		echo "Delete php config"
 		sudo rm "/etc/php5/fpm/conf.d/20-$app.ini"
 	fi
-	sudo service php5-fpm reload
+	sudo systemctl reload php5-fpm
 }
 
 SECURE_REMOVE () {      # Suppression de dossier avec vérification des variables
