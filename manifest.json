@@ -10,8 +10,8 @@
     "url": "https://www.prestashop.com/",
     "license": "free",
     "maintainer": {
-        "name": "frju365",
-        "email": "win10@tutanota.com"
+        "name": "frju365, cyp",
+        "email": "win10@tutanota.com, cyp@rouquin.me"
     },
     "requirements": {
         "yunohost": ">> 2.4.0"
