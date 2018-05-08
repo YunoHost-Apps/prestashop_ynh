@@ -83,6 +83,7 @@
                 "name": "email",
                 "type": "email",
                 "ask": {
+                    "en": "Your mail address.",
                     "fr": "Votre adresse mail."
                 },
                 "exemple": "abc@efg.hi"
