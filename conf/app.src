@@ -1,2 +1,6 @@
-SOURCE_URL=https://download.prestashop.com/download/releases/prestashop_1.7.0.6.zip
-SOURCE_SUM=84e9704e6073eb3e0235b527733c4b8e
+SOURCE_URL=https://download.prestashop.com/download/releases/prestashop_1.7.4.4.zip
+SOURCE_SUM=42e6fb80f64654e1a997807669ac1cd8c36c76c58c74b031618ac96ff3c21dcf
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=zip
+SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=
