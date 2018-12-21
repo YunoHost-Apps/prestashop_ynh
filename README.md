@@ -42,6 +42,10 @@ https://www.domain.tld/prestashop/admin
 
 ## Versionning
 
-###Version 1.0.0 (22/02/17)
+### Version 2.0 (12/2018)
+
+- Refactoring
+
+### Version 1.0.0 (22/02/17)
 
 - Create script install

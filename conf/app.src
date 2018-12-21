@@ -1,5 +1,5 @@
-SOURCE_URL=https://download.prestashop.com/download/releases/prestashop_1.7.4.4.zip
-SOURCE_SUM=42e6fb80f64654e1a997807669ac1cd8c36c76c58c74b031618ac96ff3c21dcf
+SOURCE_URL=https://download.prestashop.com/download/releases/prestashop_1.7.5.0.zip
+SOURCE_SUM=4678f43d669de2d145464404ba77b5aa58ab603ca88f1f64f830ecd3bbd4877f
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=zip
 SOURCE_IN_SUBDIR=true

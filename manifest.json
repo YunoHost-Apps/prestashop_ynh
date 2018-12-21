@@ -10,9 +10,16 @@
     "url": "https://www.prestashop.com/",
     "license": "free",
     "maintainer": {
-        "name": "frju365, cyp",
-        "email": "win10@tutanota.com, cyp@rouquin.me"
+        "name": "frju365",
+        "email": "abld@abld.info"
     },
+    "previous_maintainers": [
+      {
+        "name": "cyp",
+        "email": "cyp@rouquin.me",
+        "url": ""
+      }
+    ],
     "requirements": {
         "yunohost": ">> 2.4.0"
     },
@@ -62,13 +69,13 @@
                 "default": "Yes"
             },
             {
-                "name": "language",
+                "name": "is_public",
+                "type": "boolean",
                 "ask": {
-                    "en": "Choose the application language",
-                    "fr": "Choisissez la langue de l'application"
+                    "en": "Is it a public application?",
+                    "fr": "Est-ce une application publique ?"
                 },
-                "choices": ["en_EN", "fr_FR"],
-                "default": "fr_FR"
+                "default": true
             },
             {
                 "name": "passwd",
