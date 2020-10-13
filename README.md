@@ -1,5 +1,8 @@
 # Prestashop for YunoHost
 
+[![Integration level](https://dash.yunohost.org/integration/prestashop.svg)](https://dash.yunohost.org/appci/app/prestashop) ![](https://ci-apps.yunohost.org/ci/badges/prestashop.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/prestashop.maintain.svg)  
+[![Install prestashop with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=prestashop)
+
 ## Prestashop c'est quoi ?
 
 La solution ecommerce gratuite pour démarrer votre activité en ligne et commencer à vendre en ligne. Créez une boutique en ligne gratuitement avec PrestaShop.
