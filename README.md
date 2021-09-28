@@ -30,7 +30,6 @@ PrestaShop is an Open Source e-commerce web application, committed to providing 
 ## Documentation and resources
 
 * Official app website: https://prestashop.com
-* Official user documentation: https://yunohost.org/apps
 * Official admin documentation: https://yunohost.org/packaging_apps
 * Upstream app code repository: https://github.com/PrestaShop/PrestaShop
 * YunoHost documentation for this app: https://yunohost.org/app_prestashop
