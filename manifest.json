@@ -56,14 +56,6 @@
                 "name": "is_public",
                 "type": "boolean",
                 "default": true
-            },
-            {
-                "name": "password",
-                "type": "password",
-                "ask": {
-                    "en": "Set the password for the Admin user ≥ 5 character",
-                    "fr": "Définissez le mot de passe pour l'Administrateur. ≥ cinq charactères"
-                }
             }
         ]
     }
