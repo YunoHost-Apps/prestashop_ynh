@@ -100,42 +100,6 @@ ynh_add_fpm_config --usage=low --footprint=low --package="$extra_php_dependencie
 phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 
 #=================================================
-# Installation de Prestashop
-#=================================================
-# pushd $final_path/install/
-# php7.3 index_cli.php \
-# 		--db_server=localhost \
-# 		--db_user=$db_name \
-# 		--db_password=$db_pwd \
-# 		--db_name=$app \
-# 		--db_driver=amysqli \
-# 		--db_port=3306 \
-# 		--language=${language:0:2} \
-# 		--lastname=$admin_prestashop \
-# 		--firstname=$admin_prestashop \
-# 		--password=$pass \
-# 		--email=$email \
-# 		--domain=$domain \
-# 		--base_uri=$path \
-# 		--prefix=_ps_
-# popd
-
-# sudo rm -fr $final_path/install
-
-#=================================================
-# active ssl
-#=================================================
-
-# mysql -u $db_user -p$db_pwd $db_name -e "UPDATE _ps_configuration SET value=1 WHERE name='PS_SSL_ENABLED';"
-# mysql -u $db_user -p$db_pwd $db_name -e "INSERT INTO _ps_configuration (id_configuration, id_shop_group, id_shop, name, value, date_add, date_upd) VALUES (NULL, NULL, NULL, 'PS_SSL_ENABLED_EVERYWHERE', '1', NOW(), NOW());"
-
-#=================================================
-# Set /etc/hosts
-#=================================================
-
-#echo -e "127.0.0.1 $domain #PRESTASHOP" | sudo tee -a /etc/hosts
-
-#=================================================
 # SETUP SSOWAT
 #=================================================
 ynh_script_progression --message="Configuring permissions..." --weight=1
@@ -152,12 +116,6 @@ fi
 ynh_script_progression --message="Reloading NGINX web server..." --weight=1
 
 ynh_systemd_action --service_name=nginx --action=reload
-
-#=================================================
-# Nettoyer hosts
-#=================================================
-
-#sudo sed -i '/#PRESTASHOP/d' /etc/hosts
 
 #=================================================
 # END OF SCRIPT
