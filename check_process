@@ -2,9 +2,7 @@
 	; Manifest
 		domain="domain.tld"
 		path="/path"
-		admin="john"
 		is_public=1
-		password="1Strong-Password"
 	; Checks
 		pkg_linter=1
 		setup_sub_dir=1
@@ -13,7 +11,7 @@
 		setup_private=1
 		setup_public=1
 		upgrade=1
-		upgrade=1	from_commit=CommitHash
+		#upgrade=1	from_commit=CommitHash
 		backup_restore=1
 		multi_instance=1
 		change_url=0
