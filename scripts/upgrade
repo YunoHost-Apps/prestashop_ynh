@@ -23,15 +23,6 @@ language=$(ynh_app_setting_get "$app" language)
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
 
-# Fix is_public as a boolean value
-if [ "$is_public" = "Yes" ]; then
-	ynh_app_setting_set $app is_public 1
-	is_public=1
-elif [ "$is_public" = "No" ]; then
-	ynh_app_setting_set $app is_public 0
-	is_public=0
-fi
-
 # If db_name doesn't exist, create it
 if [ -z $db_name ]; then
 	db_name=$(ynh_sanitize_dbid $app)
@@ -102,17 +93,6 @@ ynh_add_fpm_config
 
 # Set permissions on app files
 chown -R $app:$app $final_path
-
-#=================================================
-# SETUP SSOWAT
-#=================================================
-
-# Make app public if necessary
-if [ $is_public -eq 1 ]
-then
-	# unprotected_uris allows SSO credentials to be passed anyway
-	ynh_app_setting_set $app unprotected_uris "/"
-fi
 
 #=================================================
 # RELOAD NGINX
