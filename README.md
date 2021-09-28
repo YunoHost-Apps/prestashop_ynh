@@ -27,6 +27,12 @@ PrestaShop is an Open Source e-commerce web application, committed to providing 
 
 ![](./doc/screenshots/screenshot.png)
 
+## Disclaimers / important information
+
+## Completing the installation
+
+
+http://doc.prestashop.com/display/PS17/Installing+PrestaShop#InstallingPrestaShop-Completingtheinstallation
 ## Documentation and resources
 
 * Official app website: https://prestashop.com
