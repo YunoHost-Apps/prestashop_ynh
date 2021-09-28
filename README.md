@@ -15,8 +15,6 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-GitHub stars
-
 PrestaShop is an Open Source e-commerce web application, committed to providing the best shopping cart experience for both merchants and customers. It is written in PHP, is highly customizable, supports all the major payment services, is translated in many languages and localized for many countries, has a fully responsive design (both front and back office), etc.
 
 **Shipped version:** 1.7.7.8~ynh1
@@ -29,10 +27,12 @@ PrestaShop is an Open Source e-commerce web application, committed to providing 
 
 ## Disclaimers / important information
 
-## Completing the installation
+## Configuration
 
+1. The app will require to complete the registration process after the instllation is complete by **visiting the domain** on  which Prestashop is installed.
+1. The MySQL database credentials will be sent to the **admin mail**. Fill these details while doing the registration process.
 
-http://doc.prestashop.com/display/PS17/Installing+PrestaShop#InstallingPrestaShop-Completingtheinstallation
+There is a documentation page dedicated to the post-installation process: http://doc.prestashop.com/display/PS17/Installing+PrestaShop#InstallingPrestaShop-Completingtheinstallation
 ## Documentation and resources
 
 * Official app website: https://prestashop.com
