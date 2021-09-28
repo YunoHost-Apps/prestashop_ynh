@@ -9,14 +9,14 @@
     "version": "1.7.7.8~ynh1",
     "url": "https://www.prestashop.com/",
     "upstream": {
-        "license": "free",
+        "license": "OSL-3.0",
         "website": "https://prestashop.com",
         "demo": "https://demo.prestashop.com/#/en/front",
         "admindoc": "https://yunohost.org/packaging_apps",
         "userdoc": "https://yunohost.org/apps",
         "code": "https://github.com/PrestaShop/PrestaShop"
     },
-    "license": "free",
+    "license": "OSL-3.0",
     "maintainer": {
         "name": "frju365",
         "email": "abld@abld.info"
