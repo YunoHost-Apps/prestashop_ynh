@@ -17,7 +17,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 PrestaShop is an Open Source e-commerce web application, committed to providing the best shopping cart experience for both merchants and customers. It is written in PHP, is highly customizable, supports all the major payment services, is translated in many languages and localized for many countries, has a fully responsive design (both front and back office), etc.
 
-**Shipped version:** 1.7.7.8~ynh1
+**Shipped version:** 1.7.8.1~ynh1
 
 **Demo:** https://demo.prestashop.com/#/en/front
 
@@ -36,7 +36,7 @@ There is a documentation page dedicated to the post-installation process: http:/
 ## Documentation and resources
 
 * Official app website: https://prestashop.com
-* Official admin documentation: https://yunohost.org/packaging_apps
+* Official user documentation: https://doc.prestashop.com/display/PS17/Guide+de+l'utilisateur
 * Upstream app code repository: https://github.com/PrestaShop/PrestaShop
 * YunoHost documentation for this app: https://yunohost.org/app_prestashop
 * Report a bug: https://github.com/YunoHost-Apps/prestashop_ynh/issues
