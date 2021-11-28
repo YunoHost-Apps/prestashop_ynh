@@ -12,6 +12,7 @@
         "license": "OSL-3.0",
         "website": "https://prestashop.com",
         "demo": "https://demo.prestashop.com/#/en/front",
+        "userdoc": "https://doc.prestashop.com/display/PS17/Guide+de+l'utilisateur",
         "code": "https://github.com/PrestaShop/PrestaShop"
     },
     "license": "OSL-3.0",
