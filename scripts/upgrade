@@ -120,11 +120,11 @@ ynh_add_fpm_config
 #=================================================
 # PHP-FPM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Upgrading database..." --weight=1
+# ynh_script_progression --message="Upgrading database..." --weight=1
 
-pushd $final_path
-	php$phpversion ./install/upgrade/upgrade.php
-popd
+# pushd $final_path
+# 	php$phpversion ./install/upgrade/upgrade.php
+# popd
 
 #=================================================
 # RELOAD NGINX
