@@ -6,7 +6,7 @@
         "en": "Create a E-commerce Website",
         "fr": "Créer un site ecommerce"
     },
-    "version": "1.7.8.1~ynh1",
+    "version": "1.7.8.3~ynh1",
     "url": "https://www.prestashop.com/",
     "upstream": {
         "license": "OSL-3.0",
