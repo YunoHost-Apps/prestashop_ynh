@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/PrestaShop/PrestaShop/releases/download/1.7.8.3/prestashop_1.7.8.3.zip
-SOURCE_SUM=9be5c1bbb12705574f780a86230a0f2c0f459e29f26d44fba4957250650a12ec
+SOURCE_URL=https://github.com/PrestaShop/PrestaShop/releases/download/1.7.8.5/prestashop_1.7.8.5.zip
+SOURCE_SUM=b90e7200eb759a4904a8e819de23e012ba173d93d33a4a87d3df0f30717aee60
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=zip
 SOURCE_IN_SUBDIR=false
