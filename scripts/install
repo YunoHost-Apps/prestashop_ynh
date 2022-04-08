@@ -27,6 +27,10 @@ ynh_abort_if_errors
 domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
+language=$YNH_APP_ARG_LANGUAGE
+shopname=$YNH_APP_ARG_SHOPNAME
+admin=$YNH_APP_ARG_ADMIN
+password=$YNH_APP_ARG_PASSWORD
 phpversion=$YNH_PHP_VERSION
 
 app=$YNH_APP_INSTANCE_NAME
@@ -109,29 +113,15 @@ ynh_add_fpm_config
 #=================================================
 # SPECIFIC SETUP
 #=================================================
-# ...
+# SETUP APPLICATION
 #=================================================
+ynh_script_progression --message="Installing Prestashop..." --weight=1
 
-#=================================================
-# SETUP APPLICATION WITH CURL
-#=================================================
-
-### Use these lines only if the app installation needs to be finalized through
-### web forms. We generally don't want to ask the final user,
-### so we're going to use curl to automatically fill the fields and submit the
-### forms.
-
-# Set the app as temporarily public for curl call
-ynh_script_progression --message="Configuring SSOwat..." --weight=1
-# Making the app public for curl
-ynh_permission_update --permission="main" --add="visitors"
-
-# Installation with curl
-ynh_script_progression --message="Finalizing installation..." --weight=1
-ynh_local_curl "/INSTALL_PATH" "key1=value1" "key2=value2" "key3=value3"
-
-# Remove the public access
-ynh_permission_update --permission="main" --remove="visitors"
+# Installing Prestashop
+# https://docs.prestashop-project.org/1.7-documentation/getting-started/installing-prestashop-using-command-line-script
+pushd $final_path
+	ynh_exec_as $app php index_cli.php --domain=$domain --db_server=127.0.0.1 --db_name=$db_name --db_user=$db_user --db_password=$db_pwd --name=$shopname --firstname=$admin_firstname --lastname=$admin_lastname --email=$admin_email --password=$password
+popd
 
 #=================================================
 # GENERIC FINALIZATION
