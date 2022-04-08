@@ -6,6 +6,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
+# Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
 source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
@@ -13,6 +14,10 @@ source /usr/share/yunohost/helpers
 # MANAGE SCRIPT FAILURE
 #=================================================
 
+ynh_clean_setup () {
+	#### Remove this function if there's nothing to clean before calling the remove script.
+	true
+}
 # Exit if an error occurs during the execution of the script
 ynh_abort_if_errors
 
@@ -35,14 +40,15 @@ phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 #=================================================
 ynh_script_progression --message="Validating restoration parameters..." --weight=1
 
-test ! -d $final_path || ynh_die --message="There is already a directory: $final_path "
+test ! -d $final_path \
+	|| ynh_die --message="There is already a directory: $final_path "
 
 #=================================================
 # STANDARD RESTORATION STEPS
 #=================================================
 # RESTORE THE NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Restoring the NGINX configuration..." --weight=1
+ynh_script_progression --message="Restoring the NGINX web server configuration..." --weight=1
 
 ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
@@ -57,10 +63,16 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 #=================================================
 # RESTORE THE APP MAIN DIR
 #=================================================
-ynh_script_progression --message="Restoring the app main directory..." --weight=3
+ynh_script_progression --message="Restoring the app main directory..." --weight=1
 
 ynh_restore_file --origin_path="$final_path"
 
+# FIXME: this should be managed by the core in the future
+# Here, as a packager, you may have to tweak the ownerhsip/permissions
+# such that the appropriate users (e.g. maybe www-data) can access
+# files in some cases.
+# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
+# this will be treated as a security issue.
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
@@ -72,6 +84,8 @@ ynh_script_progression --message="Restoring the PHP-FPM configuration..." --weig
 
 ynh_restore_file --origin_path="/etc/php/$phpversion/fpm/pool.d/$app.conf"
 
+#=================================================
+# SPECIFIC RESTORATION
 #=================================================
 # REINSTALL DEPENDENCIES
 #=================================================

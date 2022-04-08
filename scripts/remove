@@ -23,6 +23,8 @@ db_user=$db_name
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 
 #=================================================
+# STANDARD REMOVE
+#=================================================
 # REMOVE THE MYSQL DATABASE
 #=================================================
 ynh_script_progression --message="Removing the MySQL database..." --weight=2
@@ -61,6 +63,12 @@ ynh_script_progression --message="Removing dependencies..." --weight=1
 
 # Remove metapackage and its dependencies
 ynh_remove_app_dependencies
+
+#=================================================
+# SPECIFIC REMOVE
+#=================================================
+# ...
+#=================================================
 
 #=================================================
 # GENERIC FINALIZATION
