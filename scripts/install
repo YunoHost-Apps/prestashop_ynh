@@ -23,6 +23,7 @@ ynh_abort_if_errors
 domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
+admin=$YNH_APP_ARG_ADMIN
 phpversion=$YNH_PHP_VERSION
 
 app=$YNH_APP_INSTANCE_NAME
@@ -123,20 +124,20 @@ ynh_systemd_action --service_name=nginx --action=reload
 #=================================================
 ynh_script_progression --message="Sending a readme for the admin..." --weight=1
 
-message="Prestashop was successfully installed :)
+echo "Prestashop was successfully installed :)
 
 Please open your $app domain: https://$domain$path_url
 
 Complete the registration process from the setup page displayed.
 Details for MySQL database to be enterted while registration process:
 
-Database login:    $app
-Database name:     $app
+Database login:    $db_user
+Database name:     $db_name
 Database password: $db_pwd
 
-If you are facing any problem or want to improve this app, please open a new issue here: https://github.com/YunoHost-Apps/prestashop_ynh/issues"
+If you are facing any problem or want to improve this app, please open a new issue here: https://github.com/YunoHost-Apps/prestashop_ynh/issues" > mail_to_send
 
-ynh_send_readme_to_admin "$message"
+ynh_send_readme_to_admin --app_message="mail_to_send" --recipients="$admin" --type=install
 
 #=================================================
 # END OF SCRIPT
