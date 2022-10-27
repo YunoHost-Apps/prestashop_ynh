@@ -19,7 +19,6 @@ PrestaShop is an Open Source e-commerce web application, committed to providing 
 
 **Shipped version:** 1.7.8.6~ynh1
 
-
 **Demo:** https://demo.prestashop.com/#/en/front
 
 ## Screenshots
