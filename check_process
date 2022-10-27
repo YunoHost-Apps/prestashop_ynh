@@ -3,6 +3,10 @@
 		domain="domain.tld"
 		path="/path"
 		is_public=1
+		language=English
+		shopname=Prestashop
+		admin=john
+		password=12345678
 	; Checks
 		pkg_linter=1
 		setup_sub_dir=1
