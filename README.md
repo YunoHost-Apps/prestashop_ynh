@@ -6,6 +6,7 @@ It shall NOT be edited by hand.
 # Prestashop for YunoHost
 
 [![Integration level](https://dash.yunohost.org/integration/prestashop.svg)](https://dash.yunohost.org/appci/app/prestashop) ![Working status](https://ci-apps.yunohost.org/ci/badges/prestashop.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/prestashop.maintain.svg)
+
 [![Install Prestashop with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prestashop)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -25,14 +26,6 @@ PrestaShop is an Open Source e-commerce web application, committed to providing 
 
 ![Screenshot of Prestashop](./doc/screenshots/screenshot.png)
 
-## Disclaimers / important information
-
-## Configuration
-
-1. The app will require to complete the registration process after the instllation is complete by **visiting the domain** on  which Prestashop is installed.
-1. The MySQL database credentials will be sent to the **admin mail**. Fill these details while doing the registration process.
-
-There is a documentation page dedicated to the post-installation process: http://doc.prestashop.com/display/PS17/Installing+PrestaShop#InstallingPrestaShop-Completingtheinstallation
 ## Documentation and resources
 
 * Official app website: <https://prestashop.com>

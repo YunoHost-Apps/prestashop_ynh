@@ -1,0 +1,62 @@
+packaging_format = 2
+
+id = "prestashop"
+name = "Prestashop"
+description.en = "Create a E-commerce Website"
+description.fr = "Créer un site ecommerce"
+
+version = "8.0.1~ynh1"
+
+maintainers = ["frju365"]
+
+[upstream]
+license = "OSL-3.0"
+website = "https://prestashop.com"
+demo = "https://demo.prestashop.com/#/en/front"
+userdoc = "https://doc.prestashop.com/display/PS17/Guide+de+l'utilisateur"
+code = "https://github.com/PrestaShop/PrestaShop"
+
+[integration]
+yunohost = ">= 11.1.15"
+architectures = "all"
+multi_instance = true
+ldap = false
+sso = true
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/prestashop"
+
+    [install.admin]
+    type = "user"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+[resources]
+        [resources.sources.main]
+        url = "https://github.com/PrestaShop/PrestaShop/releases/download/8.0.1/prestashop_8.0.1.zip"
+        sha256 = "d19dfb52f9928812037c817c8fd6adec6cec718504ba2a1518b508fe17c2d0a1"
+        in_subdir = false
+        autoupdate.strategy = "latest_github_tag"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "mariadb-server php8.0-mbstring php8.0-fpm php8.0-common php8.0-curl php8.0-intl php8.0-xmlrpc php8.0-mysql php8.0-gd php8.0-xml php8.0-cli php8.0-zip"
+
+    [resources.database]
+    type = "mysql"
