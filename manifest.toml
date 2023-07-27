@@ -17,7 +17,7 @@ userdoc = "https://doc.prestashop.com/display/PS17/Guide+de+l'utilisateur"
 code = "https://github.com/PrestaShop/PrestaShop"
 
 [integration]
-yunohost = ">= 11.1.19"
+yunohost = ">= 11.1.21"
 architectures = "all"
 multi_instance = true
 ldap = false
@@ -56,7 +56,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "mariadb-server php8.0-mbstring php8.0-fpm php8.0-common php8.0-curl php8.0-intl php8.0-xmlrpc php8.0-mysql php8.0-gd php8.0-xml php8.0-cli php8.0-zip"
+    packages = "mariadb-server php8.2-mbstring php8.2-fpm php8.2-common php8.2-curl php8.2-intl php8.2-xmlrpc php8.2-mysql php8.2-gd php8.2-xml php8.2-cli php8.2-zip"
 
     [resources.database]
     type = "mysql"
