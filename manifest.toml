@@ -5,7 +5,7 @@ name = "Prestashop"
 description.en = "Create a E-commerce Website"
 description.fr = "Créer un site ecommerce"
 
-version = "8.1.1~ynh1"
+version = "8.1.1~ynh2"
 
 maintainers = ["frju365"]
 
@@ -56,7 +56,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "mariadb-server, php8.2-mbstring, php8.2-curl, php8.2-intl, php8.2-xmlrpc, php8.2-mysql, php8.2-gd, php8.2-xml, php8.2-cli, php8.2-zip"
+    packages = "mariadb-server, php8.1-mbstring, php8.1-curl, php8.1-intl, php8.1-xmlrpc, php8.1-mysql, php8.1-gd, php8.1-xml, php8.1-cli, php8.1-zip"
 
     [resources.database]
     type = "mysql"
