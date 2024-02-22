@@ -43,10 +43,11 @@ ram.runtime = "50M"
 
 [resources]
         [resources.sources.main]
-        url = "https://github.com/PrestaShop/PrestaShop/archive/refs/tags/8.1.4.tar.gz"
-        sha256 = "968e776a2b18994e16ea155c0a4dcae5c9d4ea31966fa1bb9b3d1e1b3043be3d"
+        url = "https://github.com/PrestaShop/PrestaShop/releases/download/8.1.4/prestashop_8.1.4.zip"
+        sha256 = "4d33e77734e483b0b897b1f06ff099283771f83ca6b4199a3a1cb283f4728ed4"
         in_subdir = false
-        autoupdate.strategy = "latest_github_tag"
+        autoupdate.strategy = "latest_github_release"
+        autoupdate.asset = "prestashop_.*zip"
 
     [resources.system_user]
 
