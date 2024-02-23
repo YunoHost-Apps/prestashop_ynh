@@ -5,7 +5,7 @@ name = "Prestashop"
 description.en = "Create a E-commerce Website"
 description.fr = "Créer un site ecommerce"
 
-version = "8.1.2~ynh1"
+version = "8.1.4~ynh1"
 
 maintainers = ["frju365"]
 
@@ -43,10 +43,11 @@ ram.runtime = "50M"
 
 [resources]
         [resources.sources.main]
-        url = "https://github.com/PrestaShop/PrestaShop/releases/download/8.1.2/prestashop_8.1.2.zip"
-        sha256 = "e58faf24f543a179a7eb63f88665bb13c80a35615df7ae0267c7ad3de696e2c2"
+        url = "https://github.com/PrestaShop/PrestaShop/releases/download/8.1.4/prestashop_8.1.4.zip"
+        sha256 = "4d33e77734e483b0b897b1f06ff099283771f83ca6b4199a3a1cb283f4728ed4"
         in_subdir = false
-        autoupdate.strategy = "latest_github_tag"
+        autoupdate.strategy = "latest_github_release"
+        autoupdate.asset = "prestashop_.*zip"
 
     [resources.system_user]
 
