@@ -17,10 +17,9 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 ## Overview
 
 PrestaShop is an Open Source e-commerce web application, committed to providing the best shopping cart experience for both merchants and customers. It is written in PHP, is highly customizable, supports all the major payment services, is translated in many languages and localized for many countries, has a fully responsive design (both front and back office), etc.
+**Shipped version:** 8.1.5~ynh1
 
-**Shipped version:** 8.1.4~ynh1
-
-**Demo:** https://demo.prestashop.com/#/en/front
+**Demo:** <https://demo.prestashop.com/#/en/front>
 
 ## Screenshots
 
@@ -28,11 +27,11 @@ PrestaShop is an Open Source e-commerce web application, committed to providing 
 
 ## Documentation and resources
 
-* Official app website: <https://prestashop.com>
-* Official user documentation: <https://doc.prestashop.com/display/PS17/Guide+de+l'utilisateur>
-* Upstream app code repository: <https://github.com/PrestaShop/PrestaShop>
-* YunoHost Store: <https://apps.yunohost.org/app/prestashop>
-* Report a bug: <https://github.com/YunoHost-Apps/prestashop_ynh/issues>
+- Official app website: <https://prestashop.com>
+- Official user documentation: <https://doc.prestashop.com/display/PS17/Guide+de+l'utilisateur>
+- Upstream app code repository: <https://github.com/PrestaShop/PrestaShop>
+- YunoHost Store: <https://apps.yunohost.org/app/prestashop>
+- Report a bug: <https://github.com/YunoHost-Apps/prestashop_ynh/issues>
 
 ## Developer info
 
@@ -40,7 +39,7 @@ Please send your pull request to the [testing branch](https://github.com/YunoHos
 
 To try the testing branch, please proceed like that.
 
-``` bash
+```bash
 sudo yunohost app install https://github.com/YunoHost-Apps/prestashop_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade prestashop -u https://github.com/YunoHost-Apps/prestashop_ynh/tree/testing --debug
