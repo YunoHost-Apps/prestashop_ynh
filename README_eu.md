@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # Prestashop YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/prestashop.svg)](https://dash.yunohost.org/appci/app/prestashop) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/prestashop.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/prestashop.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/prestashop.svg)](https://ci-apps.yunohost.org/ci/apps/prestashop/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/prestashop.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/prestashop.maintain.svg)
 
 [![Instalatu Prestashop YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prestashop)
 
