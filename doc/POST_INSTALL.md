@@ -1,7 +1,9 @@
-Please open your $app domain: https://__DOMAIN____PATH__
+Please open your __APP__ domain: https://__DOMAIN____PATH__
 
-Complete the registration process from the setup page displayed.
-Details for MySQL database to be enterted while registration process:
+Complete the configuration from the displayed setup assistant.
+
+1. ✓ Enable SSL
+2. Details for MySQL database
 
 Database login:    __DB_USER__
 Database name:     __DB_NAME__
