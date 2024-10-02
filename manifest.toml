@@ -5,9 +5,9 @@ name = "Prestashop"
 description.en = "Create a E-commerce Website"
 description.fr = "Créer un site ecommerce"
 
-version = "8.2.0~ynh1"
+version = "8.2.0~ynh3"
 
-maintainers = ["frju365"]
+maintainers = []
 
 [upstream]
 license = "OSL-3.0"
