@@ -18,9 +18,9 @@ Il NE doit PAS être modifié à la main.
 
 ## Vue d’ensemble
 
-PrestaShop is an Open Source e-commerce web application, committed to providing the best shopping cart experience for both merchants and customers. It is written in PHP, is highly customizable, supports all the major payment services, is translated in many languages and localized for many countries, has a fully responsive design (both front and back office), etc.
+PrestaShop est une application Web de commerce électronique Open Source, qui s'engage à offrir la meilleure expérience de panier d'achat aux commerçants et aux clients. Elle est écrite en PHP, est hautement personnalisable, prend en charge tous les principaux services de paiement, est traduite dans de nombreuses langues et localisée pour de nombreux pays, dispose d'un design entièrement réactif (front et back-office), etc.
 
-**Version incluse :** 8.2.0~ynh3
+**Version incluse :** 8.2.0~ynh4
 
 **Démo :** <https://demo.prestashop.com/#/en/front>
 
