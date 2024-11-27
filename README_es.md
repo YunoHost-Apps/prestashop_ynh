@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # Prestashop para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/prestashop.svg)](https://ci-apps.yunohost.org/ci/apps/prestashop/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/prestashop.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/prestashop.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/prestashop)](https://ci-apps.yunohost.org/ci/apps/prestashop/)
+![Estado funcional](https://apps.yunohost.org/badge/state/prestashop)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/prestashop)
 
 [![Instalar Prestashop con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prestashop)
 

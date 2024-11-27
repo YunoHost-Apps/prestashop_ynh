@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # Prestashop untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/prestashop.svg)](https://ci-apps.yunohost.org/ci/apps/prestashop/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/prestashop.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/prestashop.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/prestashop)](https://ci-apps.yunohost.org/ci/apps/prestashop/)
+![Status kerja](https://apps.yunohost.org/badge/state/prestashop)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/prestashop)
 
 [![Pasang Prestashop dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prestashop)
 
