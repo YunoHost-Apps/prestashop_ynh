@@ -15,9 +15,9 @@ ynh_script_progression "Upgrading source files..."
 ynh_setup_source --dest_dir="$install_dir" --keep="img override"
 
 #=================================================
-# PHP-FPM CONFIGURATION
+# REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression "Upgrading PHP-FPM configuration..."
+ynh_script_progression "Upgrading system configurations related to $app..."
 
 ynh_config_add_phpfpm
 
