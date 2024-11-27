@@ -5,7 +5,9 @@
 
 # Prestashop для YunoHost
 
-[![Уровень интеграции](https://dash.yunohost.org/integration/prestashop.svg)](https://ci-apps.yunohost.org/ci/apps/prestashop/) ![Состояние работы](https://ci-apps.yunohost.org/ci/badges/prestashop.status.svg) ![Состояние сопровождения](https://ci-apps.yunohost.org/ci/badges/prestashop.maintain.svg)
+[![Уровень интеграции](https://apps.yunohost.org/badge/integration/prestashop)](https://ci-apps.yunohost.org/ci/apps/prestashop/)
+![Состояние работы](https://apps.yunohost.org/badge/state/prestashop)
+![Состояние сопровождения](https://apps.yunohost.org/badge/maintained/prestashop)
 
 [![Установите Prestashop с YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prestashop)
 

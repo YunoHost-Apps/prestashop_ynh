@@ -5,7 +5,9 @@ Hij mag NIET handmatig aangepast worden.
 
 # Prestashop voor Yunohost
 
-[![Integratieniveau](https://dash.yunohost.org/integration/prestashop.svg)](https://ci-apps.yunohost.org/ci/apps/prestashop/) ![Mate van functioneren](https://ci-apps.yunohost.org/ci/badges/prestashop.status.svg) ![Onderhoudsstatus](https://ci-apps.yunohost.org/ci/badges/prestashop.maintain.svg)
+[![Integratieniveau](https://apps.yunohost.org/badge/integration/prestashop)](https://ci-apps.yunohost.org/ci/apps/prestashop/)
+![Mate van functioneren](https://apps.yunohost.org/badge/state/prestashop)
+![Onderhoudsstatus](https://apps.yunohost.org/badge/maintained/prestashop)
 
 [![Prestashop met Yunohost installeren](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prestashop)
 
