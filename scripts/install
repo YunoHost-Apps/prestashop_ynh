@@ -1,25 +1,72 @@
 #!/bin/bash
 
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
 source _common.sh
 source /usr/share/yunohost/helpers
 
+#=================================================
+# INITIALIZE AND STORE SETTINGS
+#=================================================
+
 ynh_app_setting_set --key=php_upload_max_filesize --value=1G
+ynh_app_setting_set --key=php_post_max_size --value=50M
+ynh_app_setting_set --key=php_max_execution_time --value=120
+ynh_app_setting_set --key=php_memory_limit --value=512M
+db_prefix="$(ynh_string_random --length=2)_"
+ynh_app_setting_set --key=db_prefix --value=$db_prefix
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-ynh_setup_source --dest_dir="$install_dir"
+# Download, check integrity, uncompress and patch the source from manifest.toml
+ynh_setup_source --dest_dir="$install_dir/source"
+mkdir -p "$install_dir/live"
+pushd "$install_dir/live"
+	unzip "$install_dir/source/prestashop.zip"
+popd
+
+ynh_safe_rm "$install_dir/source"
+
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
 
+# Create a PHP-FPM config (with conf/extra_php-fpm.conf being appended to it)
 ynh_config_add_phpfpm
 
+# Create a dedicated NGINX config using the conf/nginx.conf template
 ynh_config_add_nginx
+
+#=================================================
+# SETUP APPLICATION WITH CURL
+#=================================================
+
+# Installation with curl
+ynh_script_progression "Finalizing installation..."
+
+php$php_version $install_dir/live/install/index_cli.php \
+    --base_uri="$path" \
+    --domain="$domain" \
+    --db_server="127.0.0.1" \
+    --db_user="$db_user" \
+    --db_password="$db_pwd" \
+    --db_name="$db_name" \
+    --prefix="$db_prefix" \
+    --password="$password" \
+    --email="$(ynh_user_get_info --username=$admin --key=mail)" \
+    --theme="classic"
+
+ynh_safe_rm "$install_dir/live/install"
+
+ynh_mysql_db_shell $app <<< "UPDATE ${db_prefix}configuration SET value = '0' WHERE name = 'PS_CANONICAL_REDIRECT';"
 
 #=================================================
 # END OF SCRIPT

@@ -1,18 +1,44 @@
 #!/bin/bash
 
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
 source _common.sh
 source /usr/share/yunohost/helpers
+
+#=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+ynh_script_progression "Ensuring downward compatibility..."
 
 ynh_app_setting_set_default --key=php_upload_max_filesize --value=1G
 ynh_app_setting_set_default --key=memory_limit --value=512M
 ynh_app_setting_set_default --key=max_execution_time --value=60
+
+if [ ! -d "$install_dir/live" ]; then
+	tmpdir=$(mktemp -d)
+	mv $install_dir/ $tmpdir/
+	mkdir -p "$install_dir"
+	mv $tmpdir/$app/ $install_dir/live/
+	ynh_safe_rm "$tmpdir"
+fi
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-ynh_setup_source --dest_dir="$install_dir" --keep="img override"
+# Download, check integrity, uncompress and patch the source from manifest.toml
+ynh_setup_source --dest_dir="$install_dir/source"
+mkdir -p "$install_dir/live"
+pushd "$install_dir/live"
+	unzip -o "$install_dir/source/prestashop.zip"
+popd
+
+ynh_safe_rm "$install_dir/source"
+
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
@@ -22,15 +48,6 @@ ynh_script_progression "Upgrading system configurations related to $app..."
 ynh_config_add_phpfpm
 
 ynh_config_add_nginx
-
-#=================================================
-# PHP-FPM CONFIGURATION
-#=================================================
-# ynh_script_progression "Upgrading database..."
-
-# pushd $install_dir
-# 	php$php_version ./install/upgrade/upgrade.php
-# popd
 
 #=================================================
 # END OF SCRIPT
