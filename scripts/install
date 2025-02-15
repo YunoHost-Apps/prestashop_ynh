@@ -68,6 +68,8 @@ ynh_safe_rm "$install_dir/live/install"
 
 ynh_mysql_db_shell $app <<< "UPDATE ${db_prefix}configuration SET value = '0' WHERE name = 'PS_CANONICAL_REDIRECT';"
 
+ynh_local_curl "/admin"
+
 #=================================================
 # END OF SCRIPT
 #=================================================

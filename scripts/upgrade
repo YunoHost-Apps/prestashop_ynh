@@ -22,6 +22,7 @@ if [ ! -d "$install_dir/live" ]; then
 	mkdir -p "$install_dir"
 	mv $tmpdir/$app/ $install_dir/live/
 	ynh_safe_rm "$tmpdir"
+	ynh_app_setting_set_default --key=db_prefix --value="ps_"
 fi
 
 #=================================================
