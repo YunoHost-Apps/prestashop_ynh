@@ -20,7 +20,7 @@ Il NE doit PAS être modifié à la main.
 
 PrestaShop est une application Web de commerce électronique Open Source, qui s'engage à offrir la meilleure expérience de panier d'achat aux commerçants et aux clients. Elle est écrite en PHP, est hautement personnalisable, prend en charge tous les principaux services de paiement, est traduite dans de nombreuses langues et localisée pour de nombreux pays, dispose d'un design entièrement réactif (front et back-office), etc.
 
-**Version incluse :** 8.2.0~ynh4
+**Version incluse :** 8.2.1~ynh1
 
 **Démo :** <https://demo.prestashop.com/#/en/front>
 
