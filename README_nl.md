@@ -5,7 +5,9 @@ Hij mag NIET handmatig aangepast worden.
 
 # Prestashop voor Yunohost
 
-[![Integratieniveau](https://dash.yunohost.org/integration/prestashop.svg)](https://ci-apps.yunohost.org/ci/apps/prestashop/) ![Mate van functioneren](https://ci-apps.yunohost.org/ci/badges/prestashop.status.svg) ![Onderhoudsstatus](https://ci-apps.yunohost.org/ci/badges/prestashop.maintain.svg)
+[![Integratieniveau](https://apps.yunohost.org/badge/integration/prestashop)](https://ci-apps.yunohost.org/ci/apps/prestashop/)
+![Mate van functioneren](https://apps.yunohost.org/badge/state/prestashop)
+![Onderhoudsstatus](https://apps.yunohost.org/badge/maintained/prestashop)
 
 [![Prestashop met Yunohost installeren](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prestashop)
 
@@ -18,7 +20,7 @@ Hij mag NIET handmatig aangepast worden.
 
 PrestaShop is an Open Source e-commerce web application, committed to providing the best shopping cart experience for both merchants and customers. It is written in PHP, is highly customizable, supports all the major payment services, is translated in many languages and localized for many countries, has a fully responsive design (both front and back office), etc.
 
-**Geleverde versie:** 8.2.0~ynh3
+**Geleverde versie:** 8.2.1~ynh1
 
 **Demo:** <https://demo.prestashop.com/#/en/front>
 

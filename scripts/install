@@ -13,13 +13,13 @@ ynh_script_progression "Setting up source files..."
 ynh_setup_source --dest_dir="$install_dir"
 
 #=================================================
-# NGINX CONFIGURATION
+# SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression "Configuring NGINX web server..."
-
-ynh_config_add_nginx
+ynh_script_progression "Adding system configurations related to $app..."
 
 ynh_config_add_phpfpm
+
+ynh_config_add_nginx
 
 #=================================================
 # END OF SCRIPT
