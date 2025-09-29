@@ -49,8 +49,10 @@ ram.runtime = "50M"
         url = "https://github.com/PrestaShop/PrestaShop/releases/download/8.2.1/prestashop_8.2.1.zip"
         sha256 = "571e4ac5441b9465637694e7f531859170b6048adb5e0f76dc5358f379d5e453"
         in_subdir = false
-        autoupdate.strategy = "latest_github_release"
-        autoupdate.asset = "prestashop_.*zip"
+
+        # Disabled because it fails everyday, finding the 9.0 release which doesn't contain any corresponding .zip ... 
+        # autoupdate.strategy = "latest_github_release"
+        # autoupdate.asset = "prestashop_.*zip"
 
     [resources.system_user]
 
