@@ -17,7 +17,7 @@ userdoc = "https://doc.prestashop.com/display/PS17/Guide+de+l'utilisateur"
 code = "https://github.com/PrestaShop/PrestaShop"
 
 [integration]
-yunohost = ">= 12.0.9"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
