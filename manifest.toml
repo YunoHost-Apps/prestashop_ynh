@@ -5,7 +5,7 @@ name = "Prestashop"
 description.en = "Create a E-commerce Website"
 description.fr = "Créer un site ecommerce"
 
-version = "8.2.1~ynh4"
+version = "9.1.0~ynh1"
 
 maintainers = []
 
@@ -46,14 +46,12 @@ ram.runtime = "50M"
 
 [resources]
         [resources.sources.main]
-        url = "https://github.com/PrestaShop/PrestaShop/releases/download/8.2.1/prestashop_8.2.1.zip"
-        sha256 = "571e4ac5441b9465637694e7f531859170b6048adb5e0f76dc5358f379d5e453"
+        url = "https://github.com/PrestaShop/PrestaShop/archive/refs/tags/9.1.0.tar.gz"
+        sha256 = "0c1582b0d95d9222b0060614bd3901ad9f6f16cf08832c22db4b8a1bf6598eac"
         in_subdir = false
 
-        # Disabled because it fails everyday, finding the 9.0 release which doesn't contain any corresponding .zip ... 
-        # autoupdate.strategy = "latest_github_release"
-        # autoupdate.asset = "prestashop_.*zip"
-
+        autoupdate.strategy = "latest_github_release"
+        
     [resources.system_user]
 
     [resources.install_dir]
@@ -63,7 +61,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "mariadb-server, php8.3-mbstring, php8.3-curl, php8.3-intl, php8.3-xmlrpc, php8.3-mysql, php8.3-gd, php8.3-xml, php8.3-cli, php8.3-zip"
+    packages = "mariadb-server, php8.4-mbstring, php8.4-curl, php8.4-intl, php8.4-xmlrpc, php8.4-mysql, php8.4-gd, php8.4-xml, php8.4-cli, php8.4-zip"
 
     [resources.database]
     type = "mysql"
