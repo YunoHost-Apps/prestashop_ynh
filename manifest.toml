@@ -44,14 +44,7 @@ ram.runtime = "50M"
     type = "group"
     default = "visitors"
 
-[resources]
-        [resources.sources.main]
-        url = "https://github.com/PrestaShop/PrestaShop/archive/refs/tags/9.1.0.tar.gz"
-        sha256 = "0c1582b0d95d9222b0060614bd3901ad9f6f16cf08832c22db4b8a1bf6598eac"
-        in_subdir = false
-
-        autoupdate.strategy = "latest_github_release"
-        
+[resources]       
     [resources.system_user]
 
     [resources.install_dir]
@@ -61,7 +54,13 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "mariadb-server, php8.4-mbstring, php8.4-curl, php8.4-intl, php8.4-xmlrpc, php8.4-mysql, php8.4-gd, php8.4-xml, php8.4-cli, php8.4-zip"
+    packages = "make, mariadb-server, php8.5-mbstring, php8.5-curl, php8.5-intl, php8.5-iconv, php8.5-json, php8.5-pdo, php8.5-xmlrpc, php8.5-mysql, php8.5-gd, php8.5-xml, php8.5-cli, php8.5-zip"
 
     [resources.database]
     type = "mysql"
+
+    [resources.composer]
+    version = "2.9.5"
+
+    [resources.nodejs]
+    version = "20"
