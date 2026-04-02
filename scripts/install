@@ -21,6 +21,7 @@ mv $install_dir/composer.phar $install_dir/bin/composer
 chown $app:www-data -R $install_dir/bin
 chmod +x $install_dir/bin/composer
 echo "PATH=$install_dir/bin:\$PATH" >> $install_dir/.bashrc
+chown $app:www-data -R $install_dir/.bashrc
 export PATH="$install_dir/bin:$PATH"
 
 #=================================================
