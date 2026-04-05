@@ -46,7 +46,7 @@ ram.runtime = "50M"
 
 [resources]
         [resources.sources.main]
-        url = "sources/prestashop_edition_basic_version_9.1.0-4.0.zip"
+        url = "https://github.com/Thatoo/prestashop_ynh/raw/refs/heads/v9-2/sources/prestashop_edition_basic_version_9.1.0-4.0.zip"
         sha256 = "7cb2f4a625c4e6ebc1a32799401529f4a14030e435a8e0ce58ad60c09f05b78b"
         in_subdir = false
 
