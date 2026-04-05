@@ -43,5 +43,5 @@ ynh_config_add_nginx
 #=================================================
 
 ynh_script_progression "Installation of $app completed"
-ynh_script_progression "You can now access your backoffice at http://$domain/$admin_dir/"
+ynh_script_progression "You can now access your backoffice at https://$domain/$admin_dir/"
 
