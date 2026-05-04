@@ -12,11 +12,15 @@ ynh_app_setting_set_default --key=php_memory_limit --value=512M
 ynh_app_setting_set_default --key=php_max_execution_time --value=60
 
 #=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
+# Upgrade Prestashop
 #=================================================
-ynh_script_progression "Upgrading source files..."
-
-ynh_setup_source --dest_dir="$install_dir" --keep="img override"
+pushd "$install_dir"
+  admin_dir=$(ls | grep admin)
+  ynh_script_progression "Install autoupgrade module..."
+  php $install_dir/bin/console prestashop:module install autoupgrade
+  ynh_script_progression "upgrade..."
+  php $install_dir/modules/autoupgrade/bin/console update:start --channel=online $admin_dir
+popd
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
