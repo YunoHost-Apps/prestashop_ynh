@@ -45,11 +45,11 @@ ram.runtime = "50M"
     default = "visitors"
 
 [resources]
-        [resources.sources.main]
-        url = "https://github.com/Thatoo/prestashop_ynh/raw/refs/heads/v9-2/sources/prestashop_edition_basic_version_9.1.0-4.0.zip"
-        sha256 = "7cb2f4a625c4e6ebc1a32799401529f4a14030e435a8e0ce58ad60c09f05b78b"
+    [resources.sources.main]
+        url = "https://github.com/PrestaShop/PrestaShop/archive/refs/tags/9.1.1.zip"
+        sha256 = "589b367ec0d98170266f65b6bd68390b54f7bde1d6585b2b987bf7885227e528"
         in_subdir = false
-
+        
         autoupdate.strategy = "latest_github_release"
         
     [resources.system_user]
@@ -63,5 +63,8 @@ ram.runtime = "50M"
     [resources.apt]
     packages = "mariadb-server, php8.5-mbstring, php8.5-curl, php8.5-intl, php8.5-xmlrpc, php8.5-mysql, php8.5-gd, php8.5-xml, php8.5-cli, php8.5-zip"
 
+    [resources.composer]
+    version = "2.9.7"
+    
     [resources.database]
     type = "mysql"
