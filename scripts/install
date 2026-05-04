@@ -29,7 +29,7 @@ export PATH="$install_dir/bin:$PATH"
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-git clone --single-branch --branch 9.1.0-build https://github.com/PrestaShop/PrestaShop.git $install_dir/PrestaShop
+git clone --single-branch --branch 9.1.x https://github.com/PrestaShop/PrestaShop.git $install_dir/PrestaShop
 chown $app:www-data -R $install_dir/PrestaShop
 
 #=================================================
