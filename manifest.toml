@@ -48,7 +48,7 @@ ram.runtime = "50M"
     [resources.sources.main]
         url = "https://github.com/PrestaShop/PrestaShop/archive/refs/tags/9.1.1.zip"
         sha256 = "589b367ec0d98170266f65b6bd68390b54f7bde1d6585b2b987bf7885227e528"
-        in_subdir = false
+        in_subdir = true
         
         autoupdate.strategy = "latest_github_release"
         
