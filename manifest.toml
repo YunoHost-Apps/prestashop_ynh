@@ -54,7 +54,7 @@ ram.runtime = "50M"
 
     [resources.sources.hummingbird]
         url = "https://github.com/PrestaShop/hummingbird/releases/download/v2.0.0/hummingbird.zip"
-        sha256 = "sha256:be34697b46e27a2f974e023ab872875b49f75e9aefb5fc65269ad72485922fdf"
+        sha256 = "be34697b46e27a2f974e023ab872875b49f75e9aefb5fc65269ad72485922fdf"
         in_subdir = false
         
         autoupdate.strategy = "latest_github_release"
